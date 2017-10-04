@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Barcode Scanner. -->
+    <color name="white">#FFFFFF</color>
+    <!-- Barcode Scanner Overlay View. -->
+    <color name="barcodeScanner_overlayMask">#60000000</color>
+    <color name="barcodeScanner_overlayLaser">#ffcc0000</color>
+
+</resources>

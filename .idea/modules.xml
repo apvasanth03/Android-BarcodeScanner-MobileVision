@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BarcodeScanner.iml" filepath="$PROJECT_DIR$/BarcodeScanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/barcodescannerlib/barcodescannerlib.iml" filepath="$PROJECT_DIR$/barcodescannerlib/barcodescannerlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userpermission/userpermission.iml" filepath="$PROJECT_DIR$/userpermission/userpermission.iml" />
+    </modules>
+  </component>
+</project>

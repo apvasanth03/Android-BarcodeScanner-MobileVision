@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Barcode Scanner</string>
+
+    <!-- Barcode Scanner Activity. -->
+    <string name="barcodeScanner_error_noCameraFeature">Oops! We cannot scan as there is no camera in your phone.</string>
+    <string name="barcodeScanner_error_dependenciesNotDownloadedDueToLowMemory">Error! Some essential files are missing. We are attempting to download but looks like your device is out of memory. Please free up some space and try again.</string>
+    <string name="barcodeScanner_error_dependenciesNotDownloaded">Error! Some essential files to enable scanning are missing. Please update your OS and try again.</string>
+    <string name="barcodeScanner_cameraPermission_explanationMessage">Application needs to access your camera, kindly allow.</string>
+    <string name="barcodeScanner_cameraPermission_deniedMessage">Application needs to access your camera, kindly allow.</string>
+    <string name="barcodeScanner_userHelperText">Place a barcode in the center of viewfinder rectangle to scan it.</string>
+    <string name="allow">Allow</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="settings">SETTINGS</string>
+</resources>

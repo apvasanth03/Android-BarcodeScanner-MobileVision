@@ -1,0 +1,6 @@
+project.extensions.add("minSdk", 15)
+project.extensions.add("targetSdk", 26)
+project.extensions.add("compileSdk", 26)
+project.extensions.add("buildTools", "26.0.1")
+project.extensions.add("supportLibVersion", "26.1.0")
+project.extensions.add("playServicesVersion", "9.6.1")

@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vasanth.barcodescannerlib">
+
+    <!-- Used for Barcode Scanner. -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- 1. Used for Barcode Scanner. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application>
+
+        <!-- Barcode Scanner Activty. -->
+        <activity
+            android:name=".BarcodeScannerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.BarcodeScanner.FullScreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+    </application>
+
+</manifest>

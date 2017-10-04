@@ -1,0 +1,28 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Surface View. -->
+    <SurfaceView
+        android:id="@+id/activityBarcodeScanner_surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Barcode Scanner Overlay View. -->
+    <com.vasanth.barcodescannerlib.ui.BarcodeScannerOverlayView
+        android:id="@+id/activityBarcodeScanner_barcodeScannerOverlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Barcode Scanner Helper Text. -->
+    <TextView
+        android:id="@+id/activityBarcodeScanner_textView_barcodeScanerHelperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="5dp"
+        android:text="@string/barcodeScanner_userHelperText"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeSmall" />
+
+</merge>
+
+

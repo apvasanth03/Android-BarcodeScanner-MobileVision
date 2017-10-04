@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Barcode Scanner</string>
+
+    <!-- Main Activity. -->
+    <string name="barcode_scanner">Barcode Scanner</string>
+    <string name="barcodeScanner_cancelled">Barcode Scanner Canceled</string>
+</resources>
