@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.vision.barcode.Barcode;
 import com.vasanth.barcodescannerlib.BarcodeScannerActivity;
 
 /**
@@ -38,8 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_BARCODE_SCANNER) {
             processBarcodeScannerResult(requestCode, resultCode, data);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     // View.OnClickListener METHODS.
@@ -52,20 +54,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // PRIVATE METHODS.
     private void startBarcodeScanner() {
-        Intent barcodeScannerIntent = new Intent(this, BarcodeScannerActivity.class);
+        Intent barcodeScannerIntent = BarcodeScannerActivity.getIntent(this);
         startActivityForResult(barcodeScannerIntent, REQUEST_CODE_BARCODE_SCANNER);
     }
 
     private void processBarcodeScannerResult(final int requestCode, final int resultCode, final Intent data) {
-        if (requestCode == REQUEST_CODE_BARCODE_SCANNER) {
-            if (resultCode == RESULT_OK) {
-                if (data != null) {
-                    String barcodeData = data.getStringExtra(BarcodeScannerActivity.EXTRAS_RESULT_BARCODE_RAW_VALUE);
-                    Toast.makeText(this, "Barcode Found - " + barcodeData, Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(this, R.string.barcodeScanner_cancelled, Toast.LENGTH_SHORT).show();
+        if (resultCode == RESULT_OK && data != null) {
+            Barcode barcode = data.getParcelableExtra(BarcodeScannerActivity.EXTRAS_RESULT_BARCODE);
+            if (barcode != null) {
+                Toast.makeText(this, "Barcode Found - " + barcode.displayValue, Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Toast.makeText(this, R.string.barcodeScanner_cancelled, Toast.LENGTH_SHORT).show();
         }
     }
 }

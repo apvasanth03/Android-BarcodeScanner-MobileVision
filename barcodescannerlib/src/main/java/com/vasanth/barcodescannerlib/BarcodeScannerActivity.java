@@ -46,7 +46,7 @@ import com.vasanth.userpermission.RequestUserPermissionActivity;
  * <p>
  * 2. Result.
  * 2.a. Once barcode is detected, we will send result back to calling activity with the following Extra data's,
- * 2.a.1. Barcode Raw Value - EXTRAS_RESULT_BARCODE_RAW_VALUE
+ * 2.a.1. Barcode - EXTRAS_RESULT_BARCODE (Refer - https://developers.google.com/android/reference/com/google/android/gms/vision/barcode/Barcode)
  * <p>
  * 3. Notes.
  * 3.a. Add "Camera" permission to manifest file.
@@ -65,7 +65,7 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         return intent;
     }
 
-    public static final String EXTRAS_RESULT_BARCODE_RAW_VALUE = "extras_result_barcode_raw_value";
+    public static final String EXTRAS_RESULT_BARCODE = "EXTRAS_RESULT_BARCODE";
 
     private static final String TAG = "BarcodeScanner";
     private static final int REQUEST_CODE_REQUEST_CAMERA_PERMISSION = 101;
@@ -77,7 +77,6 @@ public class BarcodeScannerActivity extends AppCompatActivity {
 
     private boolean startRequested;
     private boolean surfaceAvailable;
-    private String barcodeRawValue;
 
     // Activity METHODS.
     @Override
@@ -96,7 +95,6 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         barcodeScannerOverlayView = (BarcodeScannerOverlayView) findViewById(R.id.activityBarcodeScanner_barcodeScannerOverlayView);
         startRequested = false;
         surfaceAvailable = false;
-        barcodeRawValue = null;
 
         // Check if device has CAMERA.
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
@@ -318,7 +316,7 @@ public class BarcodeScannerActivity extends AppCompatActivity {
                         new Point(cameraSource.getPreviewSize().getWidth(), cameraSource.getPreviewSize().getHeight()), barcode.getBoundingBox(),
                         barcodeScannerOverlayView.getViewFinderMiddleY())) {
             // Send Result.
-            sendResultToCallingActivity(barcode.rawValue);
+            sendResultToCallingActivity(barcode);
         }
     }
 
@@ -360,9 +358,9 @@ public class BarcodeScannerActivity extends AppCompatActivity {
     /**
      * Used to send result to calling activity.
      */
-    private void sendResultToCallingActivity(final String barcodeRawValue) {
+    private void sendResultToCallingActivity(final Barcode barcode) {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra(EXTRAS_RESULT_BARCODE_RAW_VALUE, barcodeRawValue);
+        resultIntent.putExtra(EXTRAS_RESULT_BARCODE, barcode);
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
     }
